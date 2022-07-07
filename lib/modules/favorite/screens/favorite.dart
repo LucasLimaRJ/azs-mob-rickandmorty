@@ -40,7 +40,7 @@ class _FavoriteState extends State<Favorite> {
             child: FittedBox(
               child: Observer(
                   builder: ((_) => Text(
-                      'Curtidos: ${controller.ListFavorite.length.toString()}',
+                      'Curtidos: ${controller.listFavorite.length.toString()}',
                       style: styleTitle))),
               fit: BoxFit.fitWidth,
             ),
@@ -48,22 +48,22 @@ class _FavoriteState extends State<Favorite> {
           Expanded(
               flex: 2,
               child: Observer(builder: (_) {
-                if (controller.ListFavorite.isEmpty) {
+                if (controller.listFavorite.isEmpty) {
                   return Center(child: CircularProgressIndicator());
                 } else {
 
                   return ListView.builder(
-                      itemCount: controller.ListFavorite.length,
+                      itemCount: controller.listFavorite.length,
                       itemBuilder: (BuildContext context, index) {
-                        if(controller.ListFavorite[index]['favorite'] == 0 ){
+                        if(controller.listFavorite[index]['favorite'] == 0 ){
                          
                         }
                         return episodeCard(
                             context,
-                            controller.ListFavorite[index]['episodeId'].toString(),
-                            controller.ListFavorite[index]['episode'].toString(),
-                            controller.ListFavorite[index]['name'].toString(),
-                            controller.ListFavorite[index]['dateRelease'].toString());
+                            controller.listFavorite[index]['episodeId'].toString(),
+                            controller.listFavorite[index]['episode'].toString(),
+                            controller.listFavorite[index]['name'].toString(),
+                            controller.listFavorite[index]['dateRelease'].toString());
                       });
                 }
               })),

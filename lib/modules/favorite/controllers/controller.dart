@@ -9,18 +9,16 @@ abstract class _FavoriteControllerBase with Store {
     SqlLite db = SqlLite();
 
   @observable 
-  List ListFavorite = [];
+  List listFavorite = [];
  
   @action
   getListEpisodeDbFavorites () async {
-     List results =  ListFavorite = await db.getEpisodes();
-
+     List results =  listFavorite = await db.getEpisodes();
      List<Map<String, dynamic>?> data = [
       for (var result in results) result
     ];
     
-   ListFavorite = data;
-   print(data);
+   listFavorite = data;
 
   }
 }

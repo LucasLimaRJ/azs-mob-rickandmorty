@@ -9,19 +9,19 @@ part of 'controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$FavoriteController on _FavoriteControllerBase, Store {
-  late final _$ListFavoriteAtom =
-      Atom(name: '_FavoriteControllerBase.ListFavorite', context: context);
+  late final _$listFavoriteAtom =
+      Atom(name: '_FavoriteControllerBase.listFavorite', context: context);
 
   @override
-  List<dynamic> get ListFavorite {
-    _$ListFavoriteAtom.reportRead();
-    return super.ListFavorite;
+  List<dynamic> get listFavorite {
+    _$listFavoriteAtom.reportRead();
+    return super.listFavorite;
   }
 
   @override
-  set ListFavorite(List<dynamic> value) {
-    _$ListFavoriteAtom.reportWrite(value, super.ListFavorite, () {
-      super.ListFavorite = value;
+  set listFavorite(List<dynamic> value) {
+    _$listFavoriteAtom.reportWrite(value, super.listFavorite, () {
+      super.listFavorite = value;
     });
   }
 
@@ -38,7 +38,7 @@ mixin _$FavoriteController on _FavoriteControllerBase, Store {
   @override
   String toString() {
     return '''
-ListFavorite: ${ListFavorite}
+listFavorite: ${listFavorite}
     ''';
   }
 }

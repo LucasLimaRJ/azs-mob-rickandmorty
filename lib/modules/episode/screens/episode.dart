@@ -19,8 +19,7 @@ class _EpisodeState extends State<Episode> {
     Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
     int episodeId = int.parse(arguments['episodeId']);
     controller.getEpisodeById(episodeId);
-    controller.insertEpisode(episodeId);
-    print(controller.favorite);
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryColor,

@@ -31,7 +31,7 @@ abstract class _EpisodeControllerBase with Store {
 
   @observable
   int favorite = 0;
-  
+
   @observable
   int watched = 0;
 
@@ -39,6 +39,7 @@ abstract class _EpisodeControllerBase with Store {
   getEpisodeById(int id) async {
     episodeList = await repository.getEpisodeByIdFromService(id);
     getInfoEpisode();
+    insertEpisode(id);
   }
 
   @action
@@ -54,27 +55,28 @@ abstract class _EpisodeControllerBase with Store {
   insertEpisode(int id) async {
     var exist = await db.existEpisodesById(id);
     if (exist == false) {
-      EpisodeSqlModel model =
-          EpisodeSqlModel(episodeId: id, favorite: 0, watched: 1,name: name,episode: seasonAndEpisode,dateRelease: dateRelease);
+      EpisodeSqlModel model = EpisodeSqlModel(
+          episodeId: id,
+          favorite: 0,
+          watched: 1,
+          name: name,
+          episode: seasonAndEpisode,
+          dateRelease: dateRelease);
       db.insert(model);
     }
-        getEpisodeFavoriteStatusAndwatched(id);
-
+    getEpisodeFavoriteStatusAndwatched(id);
   }
 
   @action
-  getEpisodeFavoriteStatusAndwatched(int episodeId) async{
-  var data = await db.getdbEpisodeInfo(episodeId);
-   
-     favorite = data['favorite'];
-     watched = data['watched'];
-   
+  getEpisodeFavoriteStatusAndwatched(int episodeId) async {
+    var data = await db.getdbEpisodeInfo(episodeId);
+
+    favorite = data['favorite'];
+    watched = data['watched'];
   }
 
-
-
   @action
-  updateEpisodeFavorite(int episodeId,favorite){
-    db.updateEpisode(episodeId,favorite);
+  updateEpisodeFavorite(int episodeId, favorite) {
+    db.updateEpisode(episodeId, favorite);
   }
 }

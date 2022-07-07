@@ -10,7 +10,7 @@ const String queryCreateDb =
 class SqlLite {
   Future<Database> _getDatabase() async {
     return openDatabase(
-      join(await getDatabasesPath(), 'sql5.db'),
+      join(await getDatabasesPath(), 'sql6.db'),
       onCreate: (db, version) {
         return db.execute(queryCreateDb);
       },
@@ -33,7 +33,7 @@ class SqlLite {
   getEpisodes() async {
     try {
       final Database db = await _getDatabase();
-      final List<Map<String, dynamic>> data = await db.query(_table);
+      final List<Map<String, dynamic>> data = await db.query(_table,where: 'favorite = 1');
       return data;
     } catch (ex) {
       print(ex);
