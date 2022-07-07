@@ -10,7 +10,7 @@ const String queryCreateDb =
 class SqlLite {
   Future<Database> _getDatabase() async {
     return openDatabase(
-      join(await getDatabasesPath(), 'sql3.db'),
+      join(await getDatabasesPath(), 'sql5.db'),
       onCreate: (db, version) {
         return db.execute(queryCreateDb);
       },
@@ -21,7 +21,7 @@ class SqlLite {
   Future insert(EpisodeSqlModel model) async {
     try {
       final Database db = await _getDatabase();
-      var insert = await db.insert(
+     await db.insert(
         _table,
         model.toMap(),
       );
