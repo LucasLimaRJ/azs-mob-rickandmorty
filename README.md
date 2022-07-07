@@ -15,7 +15,7 @@ Este projeto foi feito Através de um desafio.
 
  Principais packages usados:
  - Mobx (Gerencia de estado)
- - sqflite (Persistencia de dados)
+ - sqflite (Persistência de dados)
  - graphql_flutter (Consumo de Api)
 
 For help getting started with Flutter development, view the
