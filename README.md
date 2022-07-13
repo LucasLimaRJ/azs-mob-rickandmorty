@@ -2,7 +2,7 @@
 
 Rick and morty.
 
-Este projeto foi feito Através de um desafio.
+Este projeto foi feito através de um desafio.
 
  Features do projeto:
 
